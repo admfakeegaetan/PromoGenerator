@@ -1,22 +1,14 @@
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PromoGenerator {
 
-	static class QuickRandom {
-		int n = 1982;
-		
-		public int next() {
-			n = (n * 17) % 1000;
-			return n;
-		}
-	}
-
-	QuickRandom random = new QuickRandom();
+	SecureRandom random = new SecureRandom();
 	
 	List<Integer> accepted = new ArrayList<>();
 	public int generate() {
-		int code = random.next();
+		int code = random.nextInt(1000);
 		accepted.add(code);
 		return code;
 	}
